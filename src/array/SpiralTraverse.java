@@ -3,6 +3,11 @@ package array;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * LC- 54
+ * Time: O(n), Space: O(n)
+ * */
+
 public class SpiralTraverse {
 	public static void main(String[] args) {
 		int[][] matrix = {{1, 2, 3, 4}, {10, 11, 12, 5}, {9, 8, 7, 6}};
