@@ -1,5 +1,8 @@
 package tree;
- class TreeNode {
+
+import java.util.LinkedList;
+
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -8,8 +11,11 @@ package tree;
       val = x;
     }
   }
-
-public class MaximumDepthOfBinaryTree {
+/*
+ * 
+ * */
+ 
+/* public class MaximumDepthOfBinaryTree {
 	public static int maxDepth(TreeNode root) {
         if(root == null) return 0;
         int leftHeight = maxDepth(root.left);
@@ -25,7 +31,33 @@ public class MaximumDepthOfBinaryTree {
 		
 		System.out.println(maxDepth(node));
 	}
-
 }
+
+*/
+
+/*
+ * Time: O(n)
+ * Space: O(n) 
+ * */
+ public int maxDepth(TreeNode root) {
+     LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+     LinkedList<Integer> depths = new LinkedList<Integer>();
+     
+     stack.add(root);
+     depths.add(1);
+     int current_depth = 0, depth = 0;
+     while(!stack.isEmpty()){
+         root = stack.pollLast();
+         current_depth = depths.pollLast();
+         if(root != null){
+             depth = Math.max(depth, current_depth);
+             stack.add(root.left);
+             stack.add(root.right);
+             depths.add(1 + current_depth);
+             depths.add(1 + current_depth);
+         }
+     }
+     return depth;
+ }
 
 
